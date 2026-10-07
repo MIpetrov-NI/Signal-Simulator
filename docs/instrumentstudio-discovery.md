@@ -73,4 +73,17 @@ VI clone; `Measurement UI.vi` services that queue.
   copies the UI next to the executable and writes the `.serviceconfig` file that lets the MeasurementLink
   service manager start the plug-in on demand.
 
+## Measurement Plug-In UI (.measui) versus LabVIEW front panel
 
+`Get User Interface Information.vi` returns two files, in this order:
+
+1. `Signal Simulator.measui` - a **Measurement Plug-In UI** drawn with the Measurement Plug-In UI Editor.
+   InstrumentStudio renders it with its own native controls and graph, so the panel looks like the rest of
+   InstrumentStudio and the LabVIEW code only supplies the measurement logic. Elements are bound to the
+   measurement by channel name: `Configuration/<control label>` for inputs and `Output/<element label>`
+   for results (`Amplitude`, `Frequency`, `Sample Rate`, `Noise Level`, `Signal Type`, `Waveform`,
+   `Total Samples`). The `ServiceClass` in the file must equal the service class returned by
+   `Get Service Descriptor.vi` (`Signal Simulator Plug-In_LabVIEW`).
+2. `Measurement UI.vi` - the LabVIEW front panel, kept as an alternative.
+
+Open `Signal Simulator.measui` in the Measurement Plug-In UI Editor to rearrange or restyle it.

@@ -32,7 +32,7 @@ waveforms and streams them live to InstrumentStudio.
 
 | Folder | Purpose |
 |---|---|
-| `Signal Simulator Plug-In/` | Plug-in class (derived from the NI SDK), configuration / results typedefs, `Measurement Logic.vi` |
+| `Signal Simulator Plug-In/` | Plug-in class (derived from the NI SDK), configuration / results typedefs, `Measurement Logic.vi`, `Signal Simulator.measui` (InstrumentStudio UI) |
 | `Signal Generator/` | Signal generation engine library (no SDK dependency) |
 | `Signal Simulator Plug-In UI/` | Front panel library built into the packed library |
 | `docs/` | Documentation |
@@ -42,4 +42,5 @@ waveforms and streams them live to InstrumentStudio.
 Verified in LabVIEW 2026 Q3: the project loads without missing items, every VI is executable, the signal
 engine was run for all three signal types and noise (peak values, zero mean over whole cycles, block length, next start sample, noise level) and the
 UI packed library builds. The end-to-end run through InstrumentStudio has not been exercised yet.
+
 

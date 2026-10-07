@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<SourceFile Timestamp="1DA8F587BADFCE7" xmlns="http://www.ni.com/PlatformFramework">
+	<SourceModelFeatureSet>
+		<ParsableNamespace AssemblyFileVersion="9.12.0.49994" FeatureSetName="Configuration Based Software Core" Name="http://www.ni.com/ConfigurationBasedSoftware.Core" OldestCompatibleVersion="6.3.0.49152" Version="9.8.1.49152" />
+		<ParsableNamespace AssemblyFileVersion="9.12.0.49994" FeatureSetName="LabVIEW Controls" Name="http://www.ni.com/Controls.LabVIEW.Design" OldestCompatibleVersion="8.1.0.49152" Version="8.1.0.49152" />
+		<ParsableNamespace AssemblyFileVersion="24.3.0.49994" FeatureSetName="InstrumentStudio Measurement UI" Name="http://www.ni.com/InstrumentFramework/ScreenDocument" OldestCompatibleVersion="22.1.0.1" Version="22.1.0.1" />
+		<ParsableNamespace AssemblyFileVersion="9.12.0.49994" FeatureSetName="Editor" Name="http://www.ni.com/PanelCommon" OldestCompatibleVersion="6.1.0.0" Version="6.1.0.49152" />
+		<ParsableNamespace AssemblyFileVersion="9.12.0.49994" FeatureSetName="Editor" Name="http://www.ni.com/PlatformFramework" OldestCompatibleVersion="8.1.0.49152" Version="8.1.0.49152" />
+		<ApplicationVersionInfo Build="24.3.0.49994" Name="MeasurementLink UI Editor" Version="24.3.0.49994" />
+	</SourceModelFeatureSet>
+	<Screen ClientId="{7e2ebe99-c7a0-48e1-aa38-5f48ca8be11b}" DisplayName="Signal Simulator Plug-In (LabVIEW)" Id="2a8d5af8f7b4435eb751bad9ea61415a" ServiceClass="Signal Simulator Plug-In_LabVIEW" xmlns="http://www.ni.com/InstrumentFramework/ScreenDocument">
+		<ScreenSurface BackgroundColor="[SMSolidColorBrush]#ffffffff" Height="[float]500" Id="7ae3be19aee1456e9c7f11bc7b1aea46" Left="[float]0" PanelSizeMode="Fixed" Top="[float]0" Width="[float]900" xmlns="http://www.ni.com/ConfigurationBasedSoftware.Core">
+			<ChannelNumericText AdaptsToType="[bool]True" BaseName="[string]Numeric" Channel="[string]{7e2ebe99-c7a0-48e1-aa38-5f48ca8be11b}/Configuration/Amplitude" Enabled="[bool]True" Height="[float]24" Id="c40799dc559e4d06b10843c757fef577" Label="[UIModel]d45e49f3b2154947a642f604358da44f" Left="[float]24" Top="[float]60" UnitAnnotation="[string]" ValueFormatter="[string]DisplayFormat=Automatic:Digits=5:DigitDisplayType=SignificantDigits:MinimumFieldWidth=0:AlwaysShowSign=False:ShowThousandsSeparator=False" ValueType="[Type]Double" Width="[float]120" />
+			<Label Height="[float]16" Id="d45e49f3b2154947a642f604358da44f" LabelOwner="[UIModel]c40799dc559e4d06b10843c757fef577" Left="[float]24" Text="[string]Amplitude (V)" Top="[float]40" Width="[float]120" xmlns="http://www.ni.com/PanelCommon" />
+			<ChannelNumericText AdaptsToType="[bool]True" BaseName="[string]Numeric" Channel="[string]{7e2ebe99-c7a0-48e1-aa38-5f48ca8be11b}/Configuration/Frequency" Enabled="[bool]True" Height="[float]24" Id="d95a0427dbc8495788d72e07b94ff171" Label="[UIModel]d511a4e18fac4709bb749155600a73c2" Left="[float]24" Top="[float]120" UnitAnnotation="[string]" ValueFormatter="[string]DisplayFormat=Automatic:Digits=5:DigitDisplayType=SignificantDigits:MinimumFieldWidth=0:AlwaysShowSign=False:ShowThousandsSeparator=False" ValueType="[Type]Double" Width="[float]120" />
+			<Label Height="[float]16" Id="d511a4e18fac4709bb749155600a73c2" LabelOwner="[UIModel]d95a0427dbc8495788d72e07b94ff171" Left="[float]24" Text="[string]Frequency (Hz)" Top="[float]100" Width="[float]120" xmlns="http://www.ni.com/PanelCommon" />
+			<ChannelNumericText AdaptsToType="[bool]True" BaseName="[string]Numeric" Channel="[string]{7e2ebe99-c7a0-48e1-aa38-5f48ca8be11b}/Configuration/Sample Rate" Enabled="[bool]True" Height="[float]24" Id="2fabcc77f2004811bc75ccee8aab5205" Label="[UIModel]8a7b51998aa541d7afc68bbf1d6bb1bd" Left="[float]24" Top="[float]180" UnitAnnotation="[string]" ValueFormatter="[string]DisplayFormat=Automatic:Digits=5:DigitDisplayType=SignificantDigits:MinimumFieldWidth=0:AlwaysShowSign=False:ShowThousandsSeparator=False" ValueType="[Type]Double" Width="[float]120" />
+			<Label Height="[float]16" Id="8a7b51998aa541d7afc68bbf1d6bb1bd" LabelOwner="[UIModel]2fabcc77f2004811bc75ccee8aab5205" Left="[float]24" Text="[string]Sample rate (S/s)" Top="[float]160" Width="[float]120" xmlns="http://www.ni.com/PanelCommon" />
+			<ChannelNumericText AdaptsToType="[bool]True" BaseName="[string]Numeric" Channel="[string]{7e2ebe99-c7a0-48e1-aa38-5f48ca8be11b}/Configuration/Noise Level" Enabled="[bool]True" Height="[float]24" Id="495633e203df4c6082a472fcc1d7b8d4" Label="[UIModel]36475a052c464e58ba727f0e7761fe8b" Left="[float]24" Top="[float]240" UnitAnnotation="[string]" ValueFormatter="[string]DisplayFormat=Automatic:Digits=5:DigitDisplayType=SignificantDigits:MinimumFieldWidth=0:AlwaysShowSign=False:ShowThousandsSeparator=False" ValueType="[Type]Double" Width="[float]120" />
+			<Label Height="[float]16" Id="36475a052c464e58ba727f0e7761fe8b" LabelOwner="[UIModel]495633e203df4c6082a472fcc1d7b8d4" Left="[float]24" Text="[string]Noise level (RMS V)" Top="[float]220" Width="[float]120" xmlns="http://www.ni.com/PanelCommon" />
+			<ChannelEnumSelector AdaptsToType="[bool]True" AllowNonSequentialValues="[bool]True" BaseName="[string]Enum" Channel="[string]{7e2ebe99-c7a0-48e1-aa38-5f48ca8be11b}/Configuration/Signal Type" Enabled="[bool]True" Height="[float]24" Id="30005942f33746f09e88526b5006cada" Label="[UIModel]e679150f344a4068bc219f730c9e8cdd" Left="[float]24" Top="[float]300" Value="[int]0" Width="[float]120" xmlns="http://www.ni.com/InstrumentFramework/ScreenDocument">
+				<RingSelectorInfo DisplayValue="[string]Sine" IsEnabled="[bool]True" Value="[int]0" xmlns="http://www.ni.com/Controls.LabVIEW.Design" />
+				<RingSelectorInfo DisplayValue="[string]Square" IsEnabled="[bool]True" Value="[int]1" xmlns="http://www.ni.com/Controls.LabVIEW.Design" />
+				<RingSelectorInfo DisplayValue="[string]Chirp (frequency sweep)" IsEnabled="[bool]True" Value="[int]2" xmlns="http://www.ni.com/Controls.LabVIEW.Design" />
+			</ChannelEnumSelector>
+			<Label Height="[float]16" Id="e679150f344a4068bc219f730c9e8cdd" LabelOwner="[UIModel]30005942f33746f09e88526b5006cada" Left="[float]24" Text="[string]Signal type" Top="[float]280" Width="[float]120" xmlns="http://www.ni.com/PanelCommon" />
+			<ChannelNumericText AdaptsToType="[bool]True" BaseName="[string]Numeric" Channel="[string]{7e2ebe99-c7a0-48e1-aa38-5f48ca8be11b}/Output/Total Samples" IsReadOnly="[bool]True" Height="[float]24" Id="b1dbdeb410a6475c9a13103b951652ec" Label="[UIModel]0282a99c71c741e183c47b115d593c9b" Left="[float]24" Top="[float]370" UnitAnnotation="[string]" ValueFormatter="[string]DisplayFormat=Automatic:Digits=10:DigitDisplayType=DigitsOfPrecision:MinimumFieldWidth=0:AlwaysShowSign=False:ShowThousandsSeparator=True" ValueType="[Type]Double" Width="[float]120" />
+			<Label Height="[float]16" Id="0282a99c71c741e183c47b115d593c9b" LabelOwner="[UIModel]b1dbdeb410a6475c9a13103b951652ec" Left="[float]24" Text="[string]Samples generated" Top="[float]350" Width="[float]120" xmlns="http://www.ni.com/PanelCommon" />
+			<ArrayGraph Background="[SMSolidColorBrush]#00000000" BaseName="[string]Array Graph" Height="[float]420" Id="4201d5440e284502b57dcc56bddce59e" Label="[UIModel]25642561554f4e13b677c3c782a0c039" Left="[float]200" MinWidth="[float]230" PlotAreaMargin="[SMThickness]45,26,7,40" PreferIndexData="[bool]False" RenderMode="[RenderMode]Hardware" SuppressScaleLayout="[bool]False" Top="[float]40" Width="[float]680">
+				<ArrayGraphAxis Adjuster="[RangeAdjuster]FitExactly" Id="2da5fa025b0e493f80043e2f740a98a6" Label="[string]Time (s)" LabelVisibility="[SMVisibility]Visible" MajorDivisions="[UIModel]4ae88a52d3b04869b56fe0311e186d43" MinorTickVisibility="[SMVisibility]Collapsed" Orientation="[SMOrientation]Horizontal" Range="[IRange]0, 0.1, System.Double" ValueType="[Type]Double">
+					<RangeLabeledDivisions Id="4ae88a52d3b04869b56fe0311e186d43" xmlns="http://www.ni.com/Controls.LabVIEW.Design">
+						<p.LabelPresenter Format="G6" />
+					</RangeLabeledDivisions>
+				</ArrayGraphAxis>
+				<ArrayGraphAxis Adjuster="[RangeAdjuster]FitExactly" Id="b8bc6769ba22466f833dcc342f9db3c7" Label="[string]Amplitude (V)" LabelVisibility="[SMVisibility]Visible" MajorDivisions="[UIModel]0c7de37b1a6b4ab8b3f44a7ab54f6ad8" Orientation="[SMOrientation]Vertical" Range="[IRange]-1.5, 1.5, System.Double" ValueType="[Type]Double">
+					<RangeLabeledDivisions Id="0c7de37b1a6b4ab8b3f44a7ab54f6ad8" xmlns="http://www.ni.com/Controls.LabVIEW.Design">
+						<p.LabelPresenter Format="G6" />
+					</RangeLabeledDivisions>
+				</ArrayGraphAxis>
+				<HmiGraphPlot Channel="[string]{7e2ebe99-c7a0-48e1-aa38-5f48ca8be11b}/Output/Waveform" HorizontalScale="[UIModel]2da5fa025b0e493f80043e2f740a98a6" Id="a3ba927ea8ee4e278d2235590612383f" IsDefaultPlot="[bool]False" Label="[string]Waveform" VerticalScale="[UIModel]b8bc6769ba22466f833dcc342f9db3c7">
+					<PlotRenderer Id="f3716e4fb4ca4e63872eeba36f3a56c9" LineStroke="[SMSolidColorBrush]#ff2a7de1" LineThickness="[double]2" xmlns="http://www.ni.com/Controls.LabVIEW.Design" />
+				</HmiGraphPlot>
+			</ArrayGraph>
+			<Label Height="[float]16" Id="25642561554f4e13b677c3c782a0c039" LabelOwner="[UIModel]4201d5440e284502b57dcc56bddce59e" Left="[float]200" Text="[string]Simulated signal" Top="[float]20" Width="[float]120" xmlns="http://www.ni.com/PanelCommon" />
+		</ScreenSurface>
+	</Screen>
+</SourceFile>
