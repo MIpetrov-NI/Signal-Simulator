@@ -1,0 +1,8 @@
+*.aliases
+*.lvlps
+*.lvbitx
+*.bak
+*.vi.lck
+Builds/
+cache/
+.vscode/

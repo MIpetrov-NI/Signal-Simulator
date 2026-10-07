@@ -1,0 +1,7 @@
+*.vi binary
+*.ctl binary
+*.vit binary
+*.ctt binary
+*.lvlib binary
+*.lvclass binary
+*.lvproj text eol=crlf
