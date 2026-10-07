@@ -5,3 +5,5 @@
 *.vi.lck
 Builds/
 cache/
+BuiltUI/
+.Signal Simulator.UserState/
