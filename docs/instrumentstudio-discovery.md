@@ -40,7 +40,7 @@ names are the ones in this project.
 ## 3. InstrumentStudio loads the user interface
 
 `Get User Interface Information.vi` returns
-`BuiltUI\Signal Simulator Plug-In UI.lvlibp\Measurement UI.vi`, a path relative to the plug-in.
+`BuiltUI\Signal Simulator Plug-In UI.lvlibp\Measurement UI.vi`. A relative path is resolved against the folder of `Measurement Logic.vi`, so the build writes to `Signal Simulator Plug-In\BuiltUI\`. The UI VI must be reentrant (preallocated clone) or opening it fails with error 1096.
 InstrumentStudio loads that VI from the **packed library**, which is why the packed library must be
 rebuilt after every change to the UI (build specification *Signal Simulator Plug-In UI*, output
 `BuiltUI\`). A `.measui` file made with the Measurement Plug-In UI Editor can be returned instead of or
@@ -72,4 +72,5 @@ VI clone; `Measurement UI.vi` services that queue.
   SDK project template provides one; its `Post-Build Action.vi` (kept in `Signal Simulator Plug-In/Build Assets`)
   copies the UI next to the executable and writes the `.serviceconfig` file that lets the MeasurementLink
   service manager start the plug-in on demand.
+
 

@@ -24,23 +24,21 @@
 				<Property Name="Bld_buildSpecName" Type="Str">Signal Simulator Plug-In UI</Property>
 				<Property Name="Bld_excludeLibraryItems" Type="Bool">true</Property>
 				<Property Name="Bld_excludePolymorphicVIs" Type="Bool">true</Property>
-				<Property Name="Bld_localDestDir" Type="Path">../BuiltUI</Property>
+				<Property Name="Bld_localDestDir" Type="Path">../Signal Simulator Plug-In/BuiltUI</Property>
 				<Property Name="Bld_localDestDirType" Type="Str">relativeToProject</Property>
 				<Property Name="Bld_modifyLibraryFile" Type="Bool">true</Property>
 				<Property Name="Bld_previewCacheID" Type="Str">{8C2D1E77-3F0B-4A6D-8E52-6B9A47D0C3F2}</Property>
-				<Property Name="Bld_version.build" Type="Int">2</Property>
+				<Property Name="Bld_version.build" Type="Int">9</Property>
 				<Property Name="Bld_version.major" Type="Int">1</Property>
 				<Property Name="Destination[0].destName" Type="Str">Signal Simulator Plug-In UI.lvlibp</Property>
-				<Property Name="Destination[0].path" Type="Path">../BuiltUI/Signal Simulator Plug-In UI.lvlibp</Property>
-				<Property Name="Destination[0].path.type" Type="Str">relativeToProject</Property>
+				<Property Name="Destination[0].path" Type="Path">Signal Simulator Plug-In/BuiltUI/Signal Simulator Plug-In UI.lvlibp</Property>
 				<Property Name="Destination[0].preserveHierarchy" Type="Bool">true</Property>
 				<Property Name="Destination[0].type" Type="Str">App</Property>
 				<Property Name="Destination[1].destName" Type="Str">Support Directory</Property>
-				<Property Name="Destination[1].path" Type="Path">../BuiltUI</Property>
-				<Property Name="Destination[1].path.type" Type="Str">relativeToProject</Property>
+				<Property Name="Destination[1].path" Type="Path">Signal Simulator Plug-In/BuiltUI</Property>
 				<Property Name="DestinationCount" Type="Int">2</Property>
 				<Property Name="PackedLib_callersAdapt" Type="Bool">true</Property>
-				<Property Name="Source[0].itemID" Type="Str">{3E1A9C52-6D07-4B8F-A1C4-92D5E80B7F36}</Property>
+				<Property Name="Source[0].itemID" Type="Str">{6BAA069B-A96A-4C4A-A4A5-45CBA3028A2E}</Property>
 				<Property Name="Source[0].type" Type="Str">Container</Property>
 				<Property Name="Source[1].destinationIndex" Type="Int">0</Property>
 				<Property Name="Source[1].itemID" Type="Ref">/My Computer/Signal Simulator Plug-In UI.lvlib</Property>
