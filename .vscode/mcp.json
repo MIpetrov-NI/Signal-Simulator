@@ -1,0 +1,9 @@
+{
+  "servers": {
+    "labview": {
+      "type": "stdio",
+      "command": "C:\\Tools\\labview-mcp\\bin\\LabVIEWMCP.exe",
+      "args": []
+    }
+  }
+}
