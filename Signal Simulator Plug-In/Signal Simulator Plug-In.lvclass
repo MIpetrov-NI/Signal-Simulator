@@ -122,13 +122,13 @@
 		</Item>
 	</Item>
 	<Item Name="Get User Interface Information.vi" Type="VI" URL="../Get User Interface Information.vi">
-		<Property Name="NI.LibItem.Scope" Type="Int">3</Property>
-			<Property Name="NI.ClassItem.ExecutionSystem" Type="Int">-1</Property>
+		<Property Name="NI.ClassItem.ExecutionSystem" Type="Int">-1</Property>
 		<Property Name="NI.ClassItem.Flags" Type="Int">0</Property>
 		<Property Name="NI.ClassItem.InvokeUsage" Type="UInt">4</Property>
 		<Property Name="NI.ClassItem.MethodScope" Type="UInt">3</Property>
 		<Property Name="NI.ClassItem.Priority" Type="Int">1</Property>
 		<Property Name="NI.ClassItem.State" Type="Int">1082139136</Property>
+		<Property Name="NI.LibItem.Scope" Type="Int">3</Property>
 	</Item>
 	<Item Name="Measurement Logic.vi" Type="VI" URL="../Measurement Logic.vi">
 		<Property Name="NI.ClassItem.ExecutionSystem" Type="Int">-1</Property>

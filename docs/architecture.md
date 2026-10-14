@@ -1,8 +1,8 @@
 # Signal Simulator architecture
 
 The Signal Simulator is a LabVIEW **Measurement Plug-In SDK** (MeasurementLink) plug-in. It needs no
-hardware: it synthesises a sine, square or linear-chirp waveform with additive noise and streams it to
-InstrumentStudio (or any MeasurementLink client) as a continuously updating XY graph.
+hardware: it synthesises a sine wave and streams it to InstrumentStudio (or any MeasurementLink client)
+as a continuously scrolling XY graph.
 
 ## Project layout
 
@@ -13,18 +13,20 @@ Signal Simulator Plug-In/               Plug-in framework layer (one class, deri
   Measurement Configuration.ctl           Configuration typedef  (client -> plug-in)
   Measurement Results.ctl                 Results typedef        (plug-in -> client)
   Measurement Logic.vi                    Orchestrates initialize / configure / acquire / shutdown
+  Signal Simulator.measui                 InstrumentStudio (Measurement Plug-In UI) user interface
+  Signal Simulator.measui                 InstrumentStudio (Measurement Plug-In UI) user interface
   Measure.vi, Get Plugin Paths.vi, ...    Framework overrides (see below)
-Signal Generator/                       Signal generation engine (no framework dependencies)
-  Signal Generator.lvlib
-    Configure Generator.vi                Configuration  - sanitise settings, derive block size / interval
-    Initialize Generator.vi               Initialization - reset the sample counter
-    Acquire Block.vi                      Acquisition    - produce one XY block
-    Generate Signal Block.vi              Engine         - sine / square / chirp + noise maths
-    Shutdown Generator.vi                 Shutdown       - finalise the run, report total samples
+Sine Generator/                         Signal generation engine (no framework dependencies)
+  Sine Generator.lvlib
+    Configure Sine Generator.vi           Configuration  - sanitise the five settings
+    Initialize Sine Generator.vi          Initialization - reset the sample counter
+    Acquire Sine Block.vi                 Acquisition    - produce one XY window, advance the start sample
+    Generate Sine Block.vi                Engine         - the sine maths
+    Shutdown Sine Generator.vi            Shutdown       - finalise the run
 Signal Simulator Plug-In UI/            User interface layer
   Signal Simulator Plug-In UI.lvlib
     Measurement UI.vi                     Front panel shown by InstrumentStudio
-BuiltUI/                                (generated, git-ignored) Signal Simulator Plug-In UI.lvlibp
+Signal Simulator Plug-In/BuiltUI/       (generated, git-ignored) Signal Simulator Plug-In UI.lvlibp
 docs/                                   This documentation
 ```
 
@@ -83,15 +85,15 @@ classDiagram
         <<typedefs and validation>>
         Measurement Configuration.ctl
         Measurement Results.ctl
-        Configure Generator.vi
         generator settings cluster
     }
     class SignalGenerationEngine {
-        <<Signal Generator.lvlib>>
-        Initialize Generator.vi
-        Acquire Block.vi
-        Generate Signal Block.vi
-        Shutdown Generator.vi
+        <<Sine Generator.lvlib>>
+        Configure Sine Generator.vi
+        Initialize Sine Generator.vi
+        Acquire Sine Block.vi
+        Generate Sine Block.vi
+        Shutdown Sine Generator.vi
     }
     class MeasurementUI {
         <<Signal Simulator Plug-In UI.lvlib>>
@@ -120,21 +122,21 @@ sequenceDiagram
     participant SDK as SDK (Measurement Service V2)
     participant PI as Plug-in (Measure.vi)
     participant ML as Measurement Logic.vi
-    participant ENG as Signal Generator.lvlib
+    participant ENG as Sine Generator.lvlib
 
     IS->>SDK: Measure(config), server streaming
     SDK->>PI: Measure.vi (dynamic dispatch)
     PI->>ML: Variant To Data gives Measurement Configuration
-    ML->>ENG: Configure Generator (sanitise, block size, interval)
-    ML->>ENG: Initialize Generator (sample counter = 0)
+    ML->>ENG: Configure (sanitise settings)
+    ML->>ENG: Initialize (sample counter = 0)
     loop until cancelled or error, about every 100 ms
-        ML->>ENG: Acquire Block (settings, start sample)
-        ENG-->>ML: XY block and next start sample
+        ML->>ENG: Acquire (settings, start sample)
+        ENG-->>ML: XY window and next start sample
         ML->>SDK: Update Results (Measure Call Context)
         SDK-->>IS: streamed intermediate result, live XY graph
         ML->>SDK: Is Canceled?
     end
-    ML->>ENG: Shutdown Generator
+    ML->>ENG: Shutdown
     ML-->>PI: final Measurement Results (last block)
     PI-->>SDK: results variant
     SDK-->>IS: final response, stream completes
@@ -144,37 +146,50 @@ sequenceDiagram
 
 | Stage | VI | Responsibility |
 |---|---|---|
-| Configuration | `Configure Generator.vi` | Takes the five user settings, makes amplitude and noise non-negative, coerces sample rate to 1 S/s .. 10 MS/s and frequency to 0 .. Nyquist, derives the block size (about 100 ms of data, 16 .. 100 000 samples) and the 100 ms update interval. Returns one `generator settings` cluster. |
-| Initialization | `Initialize Generator.vi` | Starts a run: absolute sample counter = 0, so the first block starts at t = 0 with zero phase. The simulator uses no sessions, so nothing is opened. |
-| Acquisition | `Acquire Block.vi` calls `Generate Signal Block.vi` | Produces one contiguous XY block starting at the absolute sample index. Because the index (not a per-block phase) is carried, blocks join without a phase glitch. |
-| Shutdown | `Shutdown Generator.vi` | Finalises the run and reports the total samples. Single place to release resources if the engine ever acquires any. |
-| Orchestration | `Measurement Logic.vi` | Runs the four stages, publishes each block with `Update Results`, polls `Is Canceled`, returns the last block as the final result. |
+| Configuration | `Configure Sine Generator.vi` | Coerces the settings: amplitude >= 0, sample rate 1 S/s .. 10 MS/s, frequency 0 .. Nyquist, number of samples 2 .. 1 000 000, update interval 10 .. 10 000 ms. Returns one `generator settings` cluster. |
+| Initialization | `Initialize Sine Generator.vi` | Starts a run: sample counter = 0, so the first window starts with zero phase. Nothing to open, because there is no hardware. |
+| Acquisition | `Acquire Sine Block.vi` calls `Generate Sine Block.vi` | Produces one XY window and returns the next start sample (`start + sample rate x update interval`), so successive windows scroll the wave in real time. |
+| Shutdown | `Shutdown Sine Generator.vi` | Finalises the run and reports the samples elapsed. The single place to release resources if the engine ever acquires any. |
+| Orchestration | `Measurement Logic.vi` | Runs the four stages, publishes each window with `Update Results`, polls `Is Canceled`, returns the last window as the final result. |
 
-## Signal definitions
+## Signal definition
 
-`n` is the absolute sample index, `Fs` the sample rate, `A` the amplitude, `f` the frequency.
+`i` is the sample index inside the window, `n = start sample + i`, `Fs` the sample rate, `A` the amplitude
+and `f` the frequency.
 
-| Signal type | Definition |
+| Output | Definition |
 |---|---|
-| Sine | `A * sin(2*pi * frac(f*n/Fs))` |
-| Square | `+A` when `frac(f*n/Fs) < 0.5`, otherwise `-A` |
-| Chirp | Linear sweep from `f` to `min(10*f, 0.45*Fs)` in 1 s, repeating: `A * sin(2*pi * (f*t + 0.5*k*t^2))` with `t = (n/Fs) mod 1 s` and `k = f_stop - f` |
-| Noise | Uniform white noise added to every sample; **Noise Level** is the RMS value (`sqrt(12) * (rand - 0.5) * NoiseLevel`) |
+| `y_data` | `A * sin(2*pi * frac(f*n/Fs))` (the fractional part keeps the argument small, so long runs do not lose precision) |
+| `x_data` | `i / Fs` in seconds, always starting at 0, so the time axis of the graph is stable and always spans `(Number of Samples - 1) / Fs` |
 
 ## Configuration and results
 
-| Direction | Element | Type | Notes |
-|---|---|---|---|
-| Configuration | `Amplitude` | double | peak value |
-| Configuration | `Frequency` | double | Hz (chirp: start frequency) |
-| Configuration | `Sample Rate` | double | S/s |
-| Configuration | `Noise Level` | double | RMS amplitude |
-| Configuration | `Signal Type` | enum (uint32) | `Sine`, `Square`, `Chirp` |
-| Results | `Waveform` | `ni_protobuf_types_DoubleXYData` (x_data, y_data) | time in seconds vs. value; plotted as an XY graph |
-| Results | `Total Samples` | double | samples generated so far |
+| Direction | Element | Type | Default | Notes |
+|---|---|---|---|---|
+| Configuration | `Amplitude` | double | 1 | peak value, V |
+| Configuration | `Frequency` | double | 10 | Hz |
+| Configuration | `Sample Rate` | double | 1000 | S/s |
+| Configuration | `Number of Samples` | uint32 | 1000 | samples per window; with the sample rate this sets the width of the time axis |
+| Configuration | `Update Interval` | uint32 | 100 | ms between published windows |
+| Results | `Waveform` | `ni_protobuf_types_DoubleXYData` (x_data, y_data) | | time in seconds vs. value |
+| Results | `Total Samples` | double | | samples elapsed since the run started |
 
-The labels on the `Measurement UI.vi` controls and indicators must equal these element labels exactly;
-that is how the framework binds the panel to the measurement.
+The defaults are stored in `Measurement Configuration.ctl`; InstrumentStudio shows them when the panel is
+opened. Without stored defaults every numeric would start at 0 (sample rate 0 and amplitude 0 give a flat line).
+
+## Graph axes
+
+The graph in `Signal Simulator.measui` is the standard InstrumentStudio array graph with the graph toolbar
+(horizontal zoom, vertical zoom, pan, reset) and the optional plot, cursor and scale legends.
+
+- **Time axis:** `Time (s)`, fitted exactly to the data. Its span is set by `Number of Samples / Sample Rate`.
+- **Amplitude axis:** `Amplitude (V)`, fitted loosely so the wave never touches the frame. Its span follows `Amplitude`.
+- Both axes can also be changed by the user in InstrumentStudio (zoom, pan, fixed ranges); **Reset** returns
+  to the automatic ranges.
+
+This follows the NI examples: the XY result is plotted by binding the graph's plot to the `Waveform` output
+(`Game Of Life` does the same with its `game of life` XY cluster), and the logic publishes a complete
+window on every `Update Results` call because InstrumentStudio keeps no history.
 
 ## Most important classes, APIs and VIs
 
@@ -185,17 +200,16 @@ that is how the framework binds the panel to the measurement.
 | `Run Service.vi` (plug-in and SDK) | Entry point | Creates the gRPC services, registers with the discovery service and blocks until stopped. |
 | `Get Service Descriptor.vi` | Override | Display name, version, description and the unique `service class` string used for discovery. |
 | `Get Plugin Paths.vi` | Override | Tells the framework which VI and ctl files are the logic, configuration and results. |
-| `Get User Interface Information.vi` | Override | Points at `BuiltUI\Signal Simulator Plug-In UI.lvlibp\Measurement UI.vi`. |
-| `Get Type Specializations.vi` | Override | Pin, path and enum specialisations; none needed (the enum is added automatically). |
+| `Get User Interface Information.vi` | Override | Returns `Signal Simulator.measui` first and the LabVIEW panel `BuiltUI\Signal Simulator Plug-In UI.lvlibp\Measurement UI.vi` second. |
+| `Get Type Specializations.vi` | Override | Pin, path and enum specialisations; none needed. |
 | `Measure.vi` | Override | Converts the configuration variant to the typedef, calls the logic, returns results as a variant. |
 | `Pack for gRPC.vi`, `Unpack for gRPC.vi` | Override | Serialisation helpers for the gRPC messages. |
 | `Measure Call Context.lvclass` : `Update Results.vi` | SDK API | Streams an intermediate result to the client; **this is how live data reaches InstrumentStudio**. |
 | `Measure Call Context.lvclass` : `Is Canceled.vi` | SDK API | Cancellation polling; ends the acquisition loop when the client presses Stop. |
 | `Measurement Logic.vi` | Plug-in VI | Orchestrates the staged components. |
-| `Generate Signal Block.vi` | Engine VI | All signal mathematics. |
+| `Generate Sine Block.vi` | Engine VI | All signal mathematics. |
 | `Measurement Configuration.ctl`, `Measurement Results.ctl` | Typedefs | The contract with the client. Members of the plug-in class. |
 | `ni_protobuf_types_DoubleXYData.ctl` | Typedef (NI) | Marks the result as XY data so clients render a graph. |
 
 `Signal Measurement Complete.vi` and `Wait Until Cancelled or Complete.vi` are template scaffolding kept in
-the class. They are not used: cancellation is polled directly inside the acquisition loop, which is
-simpler for a loop that runs until cancelled.
+the class. They are not used: cancellation is polled directly inside the acquisition loop.

@@ -13,9 +13,9 @@
 		<Property Name="server.vi.callsEnabled" Type="Bool">true</Property>
 		<Property Name="server.vi.propertiesEnabled" Type="Bool">true</Property>
 		<Property Name="specify.custom.address" Type="Bool">false</Property>
-		<Item Name="Signal Generator.lvlib" Type="Library" URL="../Signal Generator/Signal Generator.lvlib"/>
 		<Item Name="Signal Simulator Plug-In UI.lvlib" Type="Library" URL="../Signal Simulator Plug-In UI/Signal Simulator Plug-In UI.lvlib"/>
 		<Item Name="Signal Simulator Plug-In.lvclass" Type="LVClass" URL="../Signal Simulator Plug-In/Signal Simulator Plug-In.lvclass"/>
+		<Item Name="Sine Generator.lvlib" Type="Library" URL="../Sine Generator/Sine Generator.lvlib"/>
 		<Item Name="Dependencies" Type="Dependencies"/>
 		<Item Name="Build Specifications" Type="Build">
 			<Item Name="Signal Simulator Plug-In UI" Type="Packed Library">
@@ -28,7 +28,7 @@
 				<Property Name="Bld_localDestDirType" Type="Str">relativeToProject</Property>
 				<Property Name="Bld_modifyLibraryFile" Type="Bool">true</Property>
 				<Property Name="Bld_previewCacheID" Type="Str">{8C2D1E77-3F0B-4A6D-8E52-6B9A47D0C3F2}</Property>
-				<Property Name="Bld_version.build" Type="Int">9</Property>
+				<Property Name="Bld_version.build" Type="Int">12</Property>
 				<Property Name="Bld_version.major" Type="Int">1</Property>
 				<Property Name="Destination[0].destName" Type="Str">Signal Simulator Plug-In UI.lvlibp</Property>
 				<Property Name="Destination[0].path" Type="Path">Signal Simulator Plug-In/BuiltUI/Signal Simulator Plug-In UI.lvlibp</Property>
