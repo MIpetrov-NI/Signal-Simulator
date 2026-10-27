@@ -27,12 +27,47 @@ a sine wave and streams it live to InstrumentStudio.
 
 ## Quick start
 
-1. Open `Signal Simulator.lvproj` in LabVIEW 2026 (Measurement Plug-In SDK installed).
+1. Apply [Dependencies.vipc](Dependencies.vipc) in VIPM to LabVIEW 2026 Q3 (64-bit), then open
+   `Signal Simulator.lvproj`. See [Dependencies and CI](#dependencies-and-ci) for the pinned packages.
 2. Right-click **Build Specifications > Signal Simulator Plug-In UI** and choose **Build**. This creates
    `BuiltUI\Signal Simulator Plug-In UI.lvlibp`, which InstrumentStudio loads. Rebuild after every UI change.
 3. Run `Signal Simulator Plug-In.lvclass : Run Service.vi`. The plug-in registers with the NI Discovery
    Service.
 4. In InstrumentStudio open the **Measurement Plug-Ins** pane, add **Signal Simulator Plug-In**, set the amplitude, frequency and sample rate and press Run.
+
+## Dependencies and CI
+
+[Dependencies.vipc](Dependencies.vipc) pins the complete Measurement Plug-In SDK package set to the
+versions installed on the development PC:
+
+| VIPM package | Version |
+|---|---|
+| `ni_measurement_plugin_sdk` | 3.5.4.1 |
+| `ni_measurement_plugin_sdk_examples` | 3.5.4.1 |
+| `ni_measurement_plugin_sdk_generator` | 3.5.4.1 |
+| `ni_measurement_plugin_sdk_service` | 3.5.4.1 |
+| `ni_lib_labview_grpc_library` | 1.7.0.1 |
+| `ni_lib_labview_grpc_servicer` | 1.7.0.1 |
+| `ni_protobuf_types` | 1.0.0.1 |
+
+The configuration targets LabVIEW **26.3 (64-bit)**. It includes the SDK's examples and generator
+because they are dependencies of the full SDK package. Package binaries are not embedded; VIPM
+downloads the exact versions from the public package repositories, so applying it requires network access.
+Open the VIPC in VIPM to review or update the configuration.
+
+The Windows image-build workflow discovers this root-level VIPC when no explicit
+`config.container.vipc` list is configured. After adding or updating it, run **Build LabVIEW CI
+Image** from GitHub Actions and wait for the repository's Windows worker image to finish building.
+Then rerun mass compile, VI Analyzer, snapshots and unit tests against the desired source commit
+using that rebuilt image. Merely pushing the VIPC does not update an existing worker image, and
+automatic dependency rebuild monitoring is not enabled by this change. If an explicit VIPC list is
+configured later, include `Dependencies.vipc` with monitoring enabled for the Windows worker.
+
+LabVIEW and the relevant NI toolkits/licenses remain prerequisites outside this VIPC. InstrumentStudio
+and NI Discovery Service are required for an end-to-end plug-in run, not installed by this configuration.
+The VIPC has been checked against the installed package metadata and public dependency declarations;
+installation and compilation in a fresh container still need verification. Linux compatibility is not
+established by these Windows dependency pins.
 
 ## Layout
 
