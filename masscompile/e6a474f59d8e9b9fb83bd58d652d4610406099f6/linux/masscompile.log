@@ -1,0 +1,51 @@
+LabVIEWCLI started logging in file:  /tmp/lvtemporary_651218.log
+Using LabVIEW: "/usr/local/natinst/LabVIEW-2026-64/labviewprofull"
+LabVIEW launched successfully.
+Connection established with LabVIEW at port number 3363.
+
+Operation output: 
+#### Starting Mass Compile: Tue, Oct 27, 2026 06:10:06 PM
+  Directory: "/workspace"
+Search failed to find "NI Measurement Plug-In SDK.lvlib:Measurement Plugin Service.lvclass" previously from "/<vilib>/Plug-In SDKs/Measurements/Measurement Plugin Service/Measurement Plugin Service.lvclass"  +=+   Caller: "Signal Simulator Plug-In.lvclass"
+Search failed to find "NI Measurement Plug-In SDK.lvlib:Post-Build Action.vi" previously from "/<vilib>/Plug-In SDKs/Measurements/Build Assets/Post-Build Action.vi"  +=+   Caller: "Signal Simulator Plug-In.lvclass:Post-Build Action.vi"
+Search failed to find "ni.protobuf.types.lvlib:ni_protobuf_types_DoubleXYData.ctl" previously from "/<vilib>/gRPC/Generated APIs/ni/protobuf/types/RPC Messages/ni_protobuf_types_DoubleXYData.ctl"  +=+   Caller: "Signal Simulator Plug-In.lvclass:Measurement Results.ctl"
+Search failed to find "NI Measurement Plug-In SDK.lvlib:Measure Call Context.lvclass" previously from "/usr/local/natinst/LabVIEW-2026-64/vi.lib/Plug-In SDKs/Measurements/Measure Call Context/Measure Call Context.lvclass"  +=+   Caller: "Signal Simulator Plug-In.lvclass:Measurement Logic.vi"
+Search failed to find "NI Measurement Plug-In SDK.lvlib:Measure Call Context.lvclass:Is Canceled.vi" previously from "/<vilib>/Plug-In SDKs/Measurements/Measure Call Context/Accessor/Is Canceled.vi"  +=+   Caller: "Signal Simulator Plug-In.lvclass:Measurement Logic.vi"
+Search failed to find "NI Measurement Plug-In SDK.lvlib:Measure Call Context.lvclass:Update Results.vi" previously from "/<vilib>/Plug-In SDKs/Measurements/Measure Call Context/Update Results.vi"  +=+   Caller: "Signal Simulator Plug-In.lvclass:Measurement Logic.vi"
+Search failed to find "NI Measurement Plug-In SDK.lvlib:Measurement Plugin Service.lvclass:Plugin Paths.ctl" previously from "/<vilib>/Plug-In SDKs/Measurements/Measurement Plugin Service/Plugin Paths.ctl"  +=+   Caller: "Signal Simulator Plug-In.lvclass:Get Plugin Paths.vi"
+Search failed to find "grpc-lvsupport-release.lvlib:Get Server DLL Path.vi" previously from "/<vilib>/gRPC/LabVIEW gRPC Library/Server API/Server/Get Server DLL Path.vi"  +=+   Caller: "Signal Simulator Plug-In.lvclass:Pack for gRPC.vi"
+Search failed to find "NI Measurement Plug-In SDK.lvlib:Measurement Plugin Service.lvclass:Get gRPC ID.vi" previously from "/<vilib>/Plug-In SDKs/Measurements/Measurement Plugin Service/Accessors/Get gRPC ID.vi"  +=+   Caller: "Signal Simulator Plug-In.lvclass:Pack for gRPC.vi"
+Search failed to find "grpc-lvsupport-release.lvlib:Translate Protobuf Error.vi" previously from "/<vilib>/gRPC/LabVIEW gRPC Library/Server API/Translate Protobuf Error.vi"  +=+   Caller: "Signal Simulator Plug-In.lvclass:Pack for gRPC.vi"
+Search failed to find "grpc-lvsupport-release.lvlib:Any.ctl" previously from "/<vilib>/gRPC/LabVIEW gRPC Library/Shared/Any.ctl"  +=+   Caller: "Signal Simulator Plug-In.lvclass:Pack for gRPC.vi:Instance:a6012965-5700-4384-8228-972e71b6560c.vi"
+Search failed to find "grpc-lvsupport-release.lvlib:grpcId.ctl" previously from "/<vilib>/gRPC/LabVIEW gRPC Library/Shared/grpcId.ctl"  +=+   Caller: "Signal Simulator Plug-In.lvclass:Pack for gRPC.vi:Instance:a6012965-5700-4384-8228-972e71b6560c.vi"
+Search failed to find "grpc-lvsupport-release.lvlib:PackToAny.vim" previously from "/<vilib>/gRPC/LabVIEW gRPC Library/Server API/Message Requests/PackToAny.vim"  +=+   Caller: "Signal Simulator Plug-In.lvclass:Pack for gRPC.vi:Instance:a6012965-5700-4384-8228-972e71b6560c.vi"
+Search failed to find "grpc-lvsupport-release.lvlib:UnpackFromAny.vim" previously from "/<vilib>/gRPC/LabVIEW gRPC Library/Server API/Message Requests/UnpackFromAny.vim"  +=+   Caller: "Signal Simulator Plug-In.lvclass:Unpack for gRPC.vi:Instance:3ecd018e-d556-4cbc-bc60-c4ba57204520.vi"
+Search failed to find "NI Measurement Plug-In SDK.lvlib:Create Basic Measurement Annotations.vi" previously from "/<vilib>/Plug-In SDKs/Measurements/Helpers/Create Basic Measurement Annotations.vi"  +=+   Caller: "Signal Simulator Plug-In.lvclass:Get Service Descriptor.vi"
+Search failed to find "NI Measurement Plug-In SDK.lvlib:Service Descriptor.ctl" previously from "/<vilib>/Plug-In SDKs/Measurements/Helpers/TypeDefs/Service Descriptor.ctl"  +=+   Caller: "Signal Simulator Plug-In.lvclass:Get Service Descriptor.vi"
+Search failed to find "NI Measurement Plug-In SDK.lvlib:Measurement Details.ctl" previously from "/<vilib>/Plug-In SDKs/Measurements/Helpers/TypeDefs/Measurement Details.ctl"  +=+   Caller: "Signal Simulator Plug-In.lvclass:Get Service Descriptor.vi"
+Search failed to find "NI Measurement Plug-In SDK.lvlib:Parameter Type Specialization.ctl" previously from "/<vilib>/Plug-In SDKs/Measurements/Helpers/TypeDefs/Parameter Type Specialization.ctl"  +=+   Caller: "Signal Simulator Plug-In.lvclass:Get Type Specializations.vi"
+Search failed to find "NI Measurement Plug-In SDK.lvlib:Run Service.vi" previously from "/<vilib>/Plug-In SDKs/Measurements/Run Service.vi"  +=+   Caller: "Signal Simulator Plug-In.lvclass:Run Service.vi"
+Search failed to find "Measure Call Context.lvclass" previously from "/usr/local/natinst/LabVIEW-2026-64/vi.lib/Plug-In SDKs/Measurements/Measure Call Context/Measure Call Context.lvclass"
+  ### Bad VI:    "Signal Simulator Plug-In.lvclass:Post-Build Action.vi"	Path="/workspace/Signal Simulator Plug-In/Build Assets/Post-Build Action.vi" 
+  ### Bad VI:    "Signal Simulator Plug-In.lvclass:Measurement Results.ctl"	Path="/workspace/Signal Simulator Plug-In/Measurement Results.ctl" 
+  ### Bad VI:    "Signal Simulator Plug-In.lvclass:Measurement Logic.vi"	Path="/workspace/Signal Simulator Plug-In/Measurement Logic.vi" 
+  ### Bad VI:    "Signal Simulator Plug-In.lvclass:Get Plugin Paths.vi"	Path="/workspace/Signal Simulator Plug-In/Get Plugin Paths.vi" 
+  ### Bad VI:    "Signal Simulator Plug-In.lvclass:Measure.vi"	Path="/workspace/Signal Simulator Plug-In/Measure.vi" 
+  ### Bad VI:    "Signal Simulator Plug-In.lvclass:Pack for gRPC.vi"	Path="/workspace/Signal Simulator Plug-In/Pack for gRPC.vi" 
+  ### Bad subVI: "Signal Simulator Plug-In.lvclass:Signal Measurement Complete.vi"	Path="/workspace/Signal Simulator Plug-In/Signal Measurement Complete.vi" 
+  ### Bad VI:    "Signal Simulator Plug-In.lvclass:Unpack for gRPC.vi"	Path="/workspace/Signal Simulator Plug-In/Unpack for gRPC.vi" 
+  ### Bad VI:    "Signal Simulator Plug-In.lvclass:Get Service Descriptor.vi"	Path="/workspace/Signal Simulator Plug-In/Get Service Descriptor.vi" 
+  ### Bad VI:    "Signal Simulator Plug-In.lvclass:Get Type Specializations.vi"	Path="/workspace/Signal Simulator Plug-In/Get Type Specializations.vi" 
+  ### Bad VI:    "Signal Simulator Plug-In.lvclass:Wait Until Cancelled or Complete.vi"	Path="/workspace/Signal Simulator Plug-In/Wait Until Cancelled or Complete.vi" 
+  ### Bad VI:    "Signal Simulator Plug-In.lvclass:Get User Interface Information.vi"	Path="/workspace/Signal Simulator Plug-In/Get User Interface Information.vi" 
+  ### Bad VI:    "Signal Simulator Plug-In.lvclass:Run Service.vi"	Path="/workspace/Signal Simulator Plug-In/Run Service.vi" 
+/workspace/.github/labview/PrintToSingleFileHtml/PrintToSingleFileHtml.lvclass (PrintToSingleFileHtml.lvclass)
+    - The class expected to be at "/workspace/.github/labview/CoreOperation/CoreOperation.lvclass" was loaded from "/usr/local/natinst/share/nilvcli/Operations/CoreOperation/CoreOperation.lvclass".
+Search failed to find "LV AI Core.lvlib:XML generator.vi" previously from "/workspace/.github/labview/toimages/_ni/labview/lvctl/vis/LV AI Core/XML generator.vi"  +=+   Caller: "VI to XML.vi"
+  ### Bad VI:    "VI to XML.vi"	Path="/workspace/.github/labview/toimages/_ni/labview/lvctl/vis/VI to XML.vi" 
+Search failed to find "LV AI Core.lvlib:VI generator.vi" previously from "/workspace/.github/labview/toimages/_ni/labview/lvctl/vis/LV AI Core/VI generator.vi"  +=+   Caller: "XML to VI.vi"
+  ### Bad VI:    "XML to VI.vi"	Path="/workspace/.github/labview/toimages/_ni/labview/lvctl/vis/XML to VI.vi" 
+#### Finished Mass Compile: Tue, Oct 27, 2026 06:10:12 PM
+
+MassCompile operation failed.
+
