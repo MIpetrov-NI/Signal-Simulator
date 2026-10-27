@@ -1,0 +1,161 @@
+{
+  "meta": {
+    "sha": "43f81bfb3544fa848ef675eaee4b9adf8deb2189",
+    "short": "43f81bf",
+    "platform": "linux",
+    "repo": "MIpetrov-NI/Signal-Simulator",
+    "pages_url": "https://MIpetrov-NI.github.io/Signal-Simulator",
+    "pages_base": "../../..",
+    "commit": {
+      "message": "Initial commit: Signal Simulator LabVIEW plug-in",
+      "author": "MIpetrov-NI",
+      "date": "2026-10-07T08:47:35-05:00"
+    },
+    "generated_utc": "2026-10-27 17:50 UTC",
+    "analysis_date": "Tuesday, October 27, 2026 05:49:59 PM",
+    "duration": "00:00:44.97"
+  },
+  "summary": {
+    "vis_analyzed": 33,
+    "tests_run": 3421,
+    "passed": 3196,
+    "failed": 225,
+    "skipped": 0,
+    "findings": 125,
+    "vis_with_findings": 15
+  },
+  "errors": {
+    "vi_not_loadable": 0,
+    "test_not_loadable": 0,
+    "test_not_runnable": 0,
+    "test_error_out": 11
+  },
+  "rule_counts": [
+    {
+      "test": "Spell Check",
+      "severity": "documentation",
+      "count": 15,
+      "vi_count": 9
+    },
+    {
+      "test": "Broken VI",
+      "severity": "correctness",
+      "count": 13,
+      "vi_count": 13
+    },
+    {
+      "test": "Enabled Debugging",
+      "severity": "performance",
+      "count": 13,
+      "vi_count": 13
+    },
+    {
+      "test": "Panel Size and Position",
+      "severity": "style",
+      "count": 11,
+      "vi_count": 8
+    },
+    {
+      "test": "Approved Bookmark Tags",
+      "severity": "style",
+      "count": 10,
+      "vi_count": 6
+    },
+    {
+      "test": "Array Default Values",
+      "severity": "correctness",
+      "count": 10,
+      "vi_count": 2
+    },
+    {
+      "test": "VI Documentation",
+      "severity": "documentation",
+      "count": 10,
+      "vi_count": 10
+    },
+    {
+      "test": "Auto Error Handling Enabled",
+      "severity": "correctness",
+      "count": 9,
+      "vi_count": 9
+    },
+    {
+      "test": "Comment Usage",
+      "severity": "documentation",
+      "count": 7,
+      "vi_count": 7
+    },
+    {
+      "test": "Control Alignment",
+      "severity": "style",
+      "count": 6,
+      "vi_count": 6
+    },
+    {
+      "test": "Cluster Sized to Fit",
+      "severity": "style",
+      "count": 4,
+      "vi_count": 3
+    },
+    {
+      "test": "Diagram Size",
+      "severity": "style",
+      "count": 4,
+      "vi_count": 4
+    },
+    {
+      "test": "Wires Under Objects",
+      "severity": "style",
+      "count": 4,
+      "vi_count": 2
+    },
+    {
+      "test": "String Constant Style",
+      "severity": "style",
+      "count": 2,
+      "vi_count": 1
+    },
+    {
+      "test": "Array Constant Style",
+      "severity": "style",
+      "count": 1,
+      "vi_count": 1
+    },
+    {
+      "test": "Case Structure Default Frame",
+      "severity": "style",
+      "count": 1,
+      "vi_count": 1
+    },
+    {
+      "test": "Connector Inputs and Outputs",
+      "severity": "correctness",
+      "count": 1,
+      "vi_count": 1
+    },
+    {
+      "test": "Error Cluster Wired",
+      "severity": "correctness",
+      "count": 1,
+      "vi_count": 1
+    },
+    {
+      "test": "Tunnel Position",
+      "severity": "style",
+      "count": 1,
+      "vi_count": 1
+    },
+    {
+      "test": "Wire Bends",
+      "severity": "style",
+      "count": 1,
+      "vi_count": 1
+    },
+    {
+      "test": "Wired Terminals in Subdiagrams",
+      "severity": "correctness",
+      "count": 1,
+      "vi_count": 1
+    }
+  ]
+}
