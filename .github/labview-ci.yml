@@ -14,7 +14,7 @@ source:
 config:
   labviewVersion: "2026"
   containerRelease: "2026q3"
-  os: [windows, linux]
+  os: [windows]
 activities:
   - dashboard
   - masscompile

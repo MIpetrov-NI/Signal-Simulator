@@ -769,6 +769,47 @@ $script:VipmEngineDead = $false
 #     vars set above, so no '-y' is required.
 $GlobalFlags = @('--labview-version', $LabVIEWVersion, '--labview-bitness', $LabVIEWBitness)
 
+function Test-VipmInstalledSpecs {
+    param([string[]] $Specs)
+    if (-not $Specs -or $Specs.Count -eq 0) { return $true }
+
+    $out = & $VipmExe @GlobalFlags list --installed 2>&1
+    $listExit = $LASTEXITCODE
+    $out | Out-Host
+    if ($listExit -ne 0) {
+        Write-Warning "Cannot verify required packages: VIPM installed-package listing failed (exit $listExit)."
+        return $false
+    }
+
+    $installed = @{}
+    foreach ($line in $out) {
+        if ([string]$line -match '^\s*(?<name>[A-Za-z0-9_.-]+)\s+v(?<version>\d+(?:\.\d+)+)\s*$') {
+            $installed[$Matches.name] = $Matches.version
+        }
+    }
+
+    $complete = $true
+    foreach ($spec in ($Specs | Select-Object -Unique)) {
+        $request = Split-VipmPackageSpec $spec
+        $actual = $installed[$request.Name]
+        if (-not $actual) {
+            Write-Warning "Required package '$spec' is not installed."
+            $complete = $false
+        } elseif ($request.Version) {
+            $versionMatches = if ($request.Minimum) {
+                (Get-NumericVersionKey $actual) -ge (Get-NumericVersionKey $request.Version)
+            } else {
+                $actual -eq $request.Version
+            }
+            if (-not $versionMatches) {
+                Write-Warning "Required package '$spec' has installed version '$actual', which does not satisfy the request."
+                $complete = $false
+            }
+        }
+    }
+    return $complete
+}
+
 # Run 'vipm install' with the global LabVIEW target flags in front of the subcommand.
 # Exit 2 (COMMAND_SYNTAX_ERROR) means this CLI build rejected the flag position; fall
 # back to the bare form, which targets the active LabVIEW from the seeded Settings.ini.
@@ -1009,8 +1050,7 @@ try {
         } elseif (Install-VipmSpecs $requiredSpecs) {
             Write-Host 'REQUIRED unit-test essentials installed.'
         } else {
-            Write-Warning 'One or more REQUIRED unit-test essentials failed to install; UTF may fail with -350053 and Caraya entry VIs may be broken (1003).'
-            $applyFailed = $true
+            Write-Warning 'The unit-test essentials install encountered errors; their final installed versions will be verified after all fallbacks.'
         }
     }
 
@@ -1046,6 +1086,15 @@ try {
     # run LAST - otherwise it would kill the engine before a required project VIPC
     # (the OpenG / domain dependencies the project's VIs load against) gets to apply.
     $vipcFiles = @($vipcFiles | Sort-Object @{ Expression = { if ($_.Name -like 'ci-tooling*') { 1 } else { 0 } } }, Name)
+    $requiredProjectSpecs = @()
+    foreach ($projectVipc in ($vipcFiles | Where-Object { $_.Name -notlike 'ci-tooling*' })) {
+        $projectSpecs = @(Get-VipcPackageSpecs $projectVipc.FullName)
+        if ($projectSpecs.Count -eq 0) {
+            Write-Warning "Required project VIPC '$($projectVipc.Name)' contains no package specifications."
+            $applyFailed = $true
+        }
+        $requiredProjectSpecs += $projectSpecs
+    }
 
     foreach ($vipc in $vipcFiles) {
         # Tooling VIPCs (ci-tooling*.vipc) carry opportunistic add-ons (Antidoc,
@@ -1100,8 +1149,21 @@ try {
                 $script:bestEffortFailed = $true
                 Write-Warning ("  '$($vipc.Name)' did not fully install, but it is best-effort tooling - continuing the build.")
             } else {
-                $applyFailed = $true
+                Write-Warning "The '$($vipc.Name)' install encountered errors; its required package versions will be verified at the end."
             }
+        }
+    }
+
+    $finalRequiredSpecs = @($requiredSpecs) + @($requiredProjectSpecs)
+    if ($finalRequiredSpecs.Count -gt 0) {
+        Write-Host 'Verifying final installed versions of all required test and project packages...'
+        if ($script:VipmEngineDead) {
+            Write-Warning 'Cannot verify required packages because the VIPM engine is unavailable.'
+            $applyFailed = $true
+        } elseif (Test-VipmInstalledSpecs $finalRequiredSpecs) {
+            Write-Host 'All required test and project package versions are installed.'
+        } else {
+            $applyFailed = $true
         }
     }
 }

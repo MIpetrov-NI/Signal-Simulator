@@ -65,9 +65,16 @@ configured later, include `Dependencies.vipc` with monitoring enabled for the Wi
 
 LabVIEW and the relevant NI toolkits/licenses remain prerequisites outside this VIPC. InstrumentStudio
 and NI Discovery Service are required for an end-to-end plug-in run, not installed by this configuration.
-The VIPC has been checked against the installed package metadata and public dependency declarations;
-installation and compilation in a fresh container still need verification. Linux compatibility is not
-established by these Windows dependency pins.
+The VIPC has been checked against the installed package metadata and public dependency declarations.
+The Windows dependency build has also successfully installed all seven project packages. The installer
+verifies final installed versions of required project and test-tooling packages after all fallbacks;
+a transient install error does not fail the build if the required versions are subsequently present.
+Missing packages, version mismatches and inability to verify the installed set still fail the build.
+
+Full plug-in CI is **Windows-only**: the SDK 3.5.4.1 packages explicitly declare
+`Exclusive_OS="Windows x64"`. The Linux worker, build, analysis, snapshot and diff workflows are not
+installed for this project. Ubuntu-hosted dashboard/report publishing jobs remain; they do not load
+the plug-in into Linux LabVIEW. Keep the Windows-only OS selection when updating the CI tooling.
 
 ## Layout
 
