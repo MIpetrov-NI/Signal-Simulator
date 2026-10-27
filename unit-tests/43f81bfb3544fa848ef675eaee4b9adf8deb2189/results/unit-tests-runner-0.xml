@@ -1,0 +1,5 @@
+<testsuite name="unit-tests runner" tests="1" errors="1">
+  <testcase name="Runner execution (not a test assertion)">
+    <error message="No enabled config.unitTests.tools found in C:\workspace\.github\labview-ci.yml. Enable a framework and configure its test locations.">No enabled config.unitTests.tools found in C:\workspace\.github\labview-ci.yml. Enable a framework and configure its test locations.</error>
+  </testcase>
+</testsuite>

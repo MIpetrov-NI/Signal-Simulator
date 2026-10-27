@@ -1,0 +1,100 @@
+{
+ "meta": {
+  "sha": "43f81bfb3544fa848ef675eaee4b9adf8deb2189",
+  "short": "43f81bf",
+  "platform": "windows",
+  "repo": "MIpetrov-NI/Signal-Simulator",
+  "pages_url": "https://MIpetrov-NI.github.io/Signal-Simulator",
+  "snap_base": "https://MIpetrov-NI.github.io/Signal-Simulator/vi-snapshots/",
+  "dash_url": "https://MIpetrov-NI.github.io/Signal-Simulator/",
+  "labview_version": "2026",
+  "tools": [
+   {
+    "id": "runner",
+    "label": "Unit test runner"
+   }
+  ],
+  "commit": {
+   "message": "Initial commit: Signal Simulator LabVIEW plug-in",
+   "author": "MIpetrov-NI",
+   "date": "2026-10-07T08:47:35-05:00"
+  },
+  "generated_utc": "2026-10-27 18:06 UTC"
+ },
+ "summary": {
+  "tests": 1,
+  "passed": 0,
+  "failed": 0,
+  "errored": 1,
+  "skipped": 0,
+  "percent": 0,
+  "status": "failed",
+  "duration": 0.0
+ },
+ "status_order": [
+  "failed",
+  "error",
+  "skipped",
+  "passed"
+ ],
+ "status_meta": {
+  "failed": {
+   "label": "Failed",
+   "color": "#da3633",
+   "blurb": "An assertion failed."
+  },
+  "error": {
+   "label": "Errored",
+   "color": "#bb8009",
+   "blurb": "The test raised an unexpected error."
+  },
+  "skipped": {
+   "label": "Skipped",
+   "color": "#6e7681",
+   "blurb": "The test was skipped."
+  },
+  "passed": {
+   "label": "Passed",
+   "color": "#2ea043",
+   "blurb": "The test passed."
+  }
+ },
+ "platforms": [
+  {
+   "id": "windows",
+   "url": null
+  },
+  {
+   "id": "linux",
+   "url": "linux/results.json"
+  }
+ ],
+ "suites": [
+  {
+   "tool": "runner",
+   "name": "unit-tests runner",
+   "tests": 1,
+   "failures": 0,
+   "errors": 1,
+   "skipped": 0,
+   "time": 0.0,
+   "cases": [
+    {
+     "name": "Runner execution (not a test assertion)",
+     "classname": "",
+     "status": "error",
+     "time": 0.0,
+     "message": "No enabled config.unitTests.tools found in C:\\workspace\\.github\\labview-ci.yml. Enable a framework and configure its test locations.",
+     "details": "No enabled config.unitTests.tools found in C:\\workspace\\.github\\labview-ci.yml. Enable a framework and configure its test locations.",
+     "test_vi_rel": "",
+     "test_vi_name": "Runner execution (not a test assertion)",
+     "target_vi_rel": "",
+     "target_vi_name": ""
+    }
+   ]
+  }
+ ],
+ "tooling": {
+  "missing": []
+ }
+}
