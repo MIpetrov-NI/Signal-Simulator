@@ -1,0 +1,42 @@
+{
+ "meta": {
+  "sha": "2274df502fd976b4a90431eaa375ec045b3c90a8",
+  "short": "2274df5",
+  "platform": "windows",
+  "repo": "MIpetrov-NI/Signal-Simulator",
+  "pages_url": "https://MIpetrov-NI.github.io/Signal-Simulator",
+  "dash_url": "https://MIpetrov-NI.github.io/Signal-Simulator/",
+  "labview_version": "2026",
+  "commit": {
+   "message": "Pin Measurement Plug-In SDK dependencies for container builds",
+   "author": "MIpetrov-NI",
+   "date": "2026-10-27T13:28:04-05:00"
+  },
+  "generated_utc": "2026-10-27 18:43 UTC",
+  "spdx_version": "CycloneDX 1.5",
+  "created": ""
+ },
+ "summary": {
+  "total_packages": 1
+ },
+ "platforms": [
+  {
+   "id": "windows",
+   "url": null
+  },
+  {
+   "id": "linux",
+   "url": null
+  }
+ ],
+ "packages": [
+  {
+   "name": "ni-labview-2026-vilib",
+   "version": "26.3.0.49792-0+f640",
+   "vendor": "National Instruments"
+  }
+ ],
+ "tooling": {
+  "missing": []
+ }
+}
