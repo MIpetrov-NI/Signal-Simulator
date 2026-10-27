@@ -1,0 +1,10 @@
+{
+  "repo": "MIpetrov-NI/Signal-Simulator",
+  "sha": "43f81bfb3544fa848ef675eaee4b9adf8deb2189",
+  "ref": "refs/heads/main",
+  "platform": "linux",
+  "arch": "x86_64",
+  "labview_version": "2026",
+  "built_at": "2026-10-27T17:48:58Z",
+  "specs": []
+}
