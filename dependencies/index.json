@@ -1,8 +1,17 @@
 {
   "schema": 1,
   "repo": "MIpetrov-NI/Signal-Simulator",
-  "sha": "668f2dad8fd912a2e6f3026ccfbccf87a47b7166",
+  "sha": "2274df502fd976b4a90431eaa375ec045b3c90a8",
   "revisions": [
+    {
+      "sha": "2274df502fd976b4a90431eaa375ec045b3c90a8",
+      "short": "2274df5",
+      "message": "Pin Measurement Plug-In SDK dependencies for container builds",
+      "author": "MIpetrov-NI",
+      "date": "2026-10-27T18:28:04Z",
+      "project": true,
+      "dep_only": true
+    },
     {
       "sha": "668f2dad8fd912a2e6f3026ccfbccf87a47b7166",
       "short": "668f2da",
@@ -116,6 +125,29 @@
         "pnr_lib_junit_xml-1.0.0.4",
         "sas_workshops_lib_lunit_for_g_cli-1.2.1.85",
         "wiresmith_technology_lib_g_cli-3.0.1.98"
+      ],
+      "error": ""
+    },
+    {
+      "path": "Dependencies.vipc",
+      "role": "project",
+      "capability": "",
+      "tooling": false,
+      "configured": true,
+      "monitored": true,
+      "monitorOn": [
+        "windows",
+        "linux"
+      ],
+      "locked": false,
+      "packages": [
+        "ni_lib_labview_grpc_library-1.7.0.1",
+        "ni_lib_labview_grpc_servicer-1.7.0.1",
+        "ni_measurement_plugin_sdk-3.5.4.1",
+        "ni_measurement_plugin_sdk_examples-3.5.4.1",
+        "ni_measurement_plugin_sdk_generator-3.5.4.1",
+        "ni_measurement_plugin_sdk_service-3.5.4.1",
+        "ni_protobuf_types-1.0.0.1"
       ],
       "error": ""
     }
