@@ -1,8 +1,17 @@
 {
   "schema": 1,
   "repo": "MIpetrov-NI/Signal-Simulator",
-  "sha": "2274df502fd976b4a90431eaa375ec045b3c90a8",
+  "sha": "cac9666ac6e0b470c26a20a34eb91af5f6352cee",
   "revisions": [
+    {
+      "sha": "cac9666ac6e0b470c26a20a34eb91af5f6352cee",
+      "short": "cac9666",
+      "message": "Verify final dependency state and run plug-in CI on Windows only",
+      "author": "MIpetrov-NI",
+      "date": "2026-10-27T19:59:47Z",
+      "project": false,
+      "dep_only": false
+    },
     {
       "sha": "2274df502fd976b4a90431eaa375ec045b3c90a8",
       "short": "2274df5",
@@ -242,8 +251,8 @@
           "label": "workflow-built"
         },
         "linux": {
-          "present": true,
-          "label": "toimages image"
+          "present": false,
+          "label": ""
         }
       }
     },
@@ -258,8 +267,8 @@
           "label": "workflow-built"
         },
         "linux": {
-          "present": true,
-          "label": "toimages image"
+          "present": false,
+          "label": ""
         }
       }
     }
