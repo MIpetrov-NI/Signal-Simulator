@@ -1,0 +1,50 @@
+[
+  {
+    "sha": "668f2dad8fd912a2e6f3026ccfbccf87a47b7166",
+    "short": "668f2da",
+    "message": "Add LabVIEW CI pipeline",
+    "author": "Milena",
+    "date": "2026-10-27T12:37:38-05:00",
+    "vi_count": 20
+  },
+  {
+    "sha": "e6a474f59d8e9b9fb83bd58d652d4610406099f6",
+    "short": "e6a474f",
+    "message": "Sine-only generator with configurable window, default values and standard InstrumentStudio graph",
+    "author": "MIpetrov-NI",
+    "date": "2026-10-14T15:36:49-05:00",
+    "vi_count": 20
+  },
+  {
+    "sha": "c086c08f780ed27e0d0d7a2025db01fd49d889fe",
+    "short": "c086c08",
+    "message": "Add InstrumentStudio .measui user interface and return it first from Get User Interface Information",
+    "author": "MIpetrov-NI",
+    "date": "2026-10-07T10:59:32-05:00",
+    "vi_count": 20
+  },
+  {
+    "sha": "c5530d68b2b039d19074297c77ebc17c9f2604f7",
+    "short": "c5530d6",
+    "message": "Make UI VI reentrant and build the UI packed library next to the plug-in",
+    "author": "MIpetrov-NI",
+    "date": "2026-10-07T10:23:39-05:00",
+    "vi_count": 20
+  },
+  {
+    "sha": "d339c903c4445f33be4d6804756a164199f70955",
+    "short": "d339c90",
+    "message": "Signal simulator: sine/square/chirp engine, staged plug-in logic, XY UI, docs",
+    "author": "MIpetrov-NI",
+    "date": "2026-10-07T10:00:13-05:00",
+    "vi_count": 20
+  },
+  {
+    "sha": "43f81bfb3544fa848ef675eaee4b9adf8deb2189",
+    "short": "43f81bf",
+    "message": "Initial commit: Signal Simulator LabVIEW plug-in",
+    "author": "MIpetrov-NI",
+    "date": "2026-10-07T08:47:35-05:00",
+    "vi_count": 15
+  }
+]
