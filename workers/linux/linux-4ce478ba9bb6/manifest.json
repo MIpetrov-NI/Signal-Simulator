@@ -1,0 +1,21 @@
+{
+  "schema": 2,
+  "platform": "linux",
+  "version": "linux-4ce478ba9bb6",
+  "labview_version": "2026",
+  "base_image": "ghcr.io/elijah286/labview-ci-with-containers-labview:linux-2026",
+  "base_digest": "sha256:5f29fff95ef4c8bef793a0d571b7fb40e0c5a5e9807532a785c801acb0e75226",
+  "seed_image": "",
+  "seed_digest": "",
+  "worker_layer": "",
+  "copied_from_base": false,
+  "image_ref": "ghcr.io/mipetrov-ni/signal-simulator-labview:linux-4ce478ba9bb6",
+  "build_date": "2026-10-27T17:37:44Z",
+  "git_sha": "903f679cbcc671882d6c2558edd46a6a5a6b6b5b",
+  "run_url": "https://github.com/MIpetrov-NI/Signal-Simulator/actions/runs/40552344581",
+  "vipc": [],
+  "vipm_raw": "",
+  "vipm_packages": [],
+  "nipkg_raw": "",
+  "nipkg_packages": []
+}
