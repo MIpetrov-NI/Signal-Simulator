@@ -1,0 +1,75 @@
+{
+  "platform": "windows",
+  "files": [
+    {
+      "file": "Signal Generator/Acquire Block.vi",
+      "type": "deleted",
+      "report": "Signal_Generator-Acquire_Block.vi/index.html"
+    },
+    {
+      "file": "Signal Generator/Configure Generator.vi",
+      "type": "deleted",
+      "report": "Signal_Generator-Configure_Generator.vi/index.html"
+    },
+    {
+      "file": "Signal Generator/Generate Signal Block.vi",
+      "type": "deleted",
+      "report": "Signal_Generator-Generate_Signal_Block.vi/index.html"
+    },
+    {
+      "file": "Signal Generator/Initialize Generator.vi",
+      "type": "deleted",
+      "report": "Signal_Generator-Initialize_Generator.vi/index.html"
+    },
+    {
+      "file": "Signal Generator/Shutdown Generator.vi",
+      "type": "deleted",
+      "report": "Signal_Generator-Shutdown_Generator.vi/index.html"
+    },
+    {
+      "file": "Signal Simulator Plug-In UI/Measurement UI.vi",
+      "type": "modified",
+      "report": "Signal_Simulator_Plug-In_UI-Measurement_UI.vi/index.html"
+    },
+    {
+      "file": "Signal Simulator Plug-In/Get Service Descriptor.vi",
+      "type": "modified",
+      "report": "Signal_Simulator_Plug-In-Get_Service_Descriptor.vi/index.html"
+    },
+    {
+      "file": "Signal Simulator Plug-In/Measurement Configuration.ctl",
+      "type": "modified",
+      "report": "Signal_Simulator_Plug-In-Measurement_Configuration.ctl/index.html"
+    },
+    {
+      "file": "Signal Simulator Plug-In/Measurement Logic.vi",
+      "type": "modified",
+      "report": "Signal_Simulator_Plug-In-Measurement_Logic.vi/index.html"
+    },
+    {
+      "file": "Sine Generator/Acquire Sine Block.vi",
+      "type": "added",
+      "report": "Sine_Generator-Acquire_Sine_Block.vi/index.html"
+    },
+    {
+      "file": "Sine Generator/Configure Sine Generator.vi",
+      "type": "added",
+      "report": "Sine_Generator-Configure_Sine_Generator.vi/index.html"
+    },
+    {
+      "file": "Sine Generator/Generate Sine Block.vi",
+      "type": "added",
+      "report": "Sine_Generator-Generate_Sine_Block.vi/index.html"
+    },
+    {
+      "file": "Sine Generator/Initialize Sine Generator.vi",
+      "type": "added",
+      "report": "Sine_Generator-Initialize_Sine_Generator.vi/index.html"
+    },
+    {
+      "file": "Sine Generator/Shutdown Sine Generator.vi",
+      "type": "added",
+      "report": "Sine_Generator-Shutdown_Sine_Generator.vi/index.html"
+    }
+  ]
+}
