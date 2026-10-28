@@ -1,0 +1,14 @@
+=== ExecuteBuildSpec 'Signal Simulator Plug-In UI' [Packed Library] target 'My Computer' in Signal Simulator.lvproj ===
+LabVIEWCLI started logging in file:  C:\Users\ContainerAdministrator\AppData\Local\Temp\lvtemporary_21679.log
+Using LabVIEW: "C:\Program Files\National Instruments\LabVIEW 2026\LabVIEW.exe"
+LabVIEW launched successfully.
+Connection established with LabVIEW at port number 3363.
+
+Operation output: 
+Generated files are:
+C:\workspace\Signal Simulator Plug-In\BuiltUI\Signal Simulator Plug-In UI.lvlibp
+
+
+ExecuteBuildSpec operation succeeded.
+
+

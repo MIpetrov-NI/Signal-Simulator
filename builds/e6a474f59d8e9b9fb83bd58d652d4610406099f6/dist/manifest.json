@@ -1,0 +1,23 @@
+{
+    "repo":  "MIpetrov-NI/Signal-Simulator",
+    "sha":  "e6a474f59d8e9b9fb83bd58d652d4610406099f6",
+    "ref":  "refs/heads/main",
+    "platform":  "windows",
+    "arch":  "AMD64",
+    "labview_version":  "LabVIEW 2026",
+    "built_at":  "2026-10-28T13:20:49Z",
+    "specs":  [
+                  {
+                      "project":  "Signal Simulator.lvproj",
+                      "name":  "Signal Simulator Plug-In UI",
+                      "type":  "Packed Library",
+                      "target":  "My Computer",
+                      "status":  "built",
+                      "outputs":  [
+
+                                  ],
+                      "message":  "Built, but no output files were located (destination dir: \u0027C:\\Signal Simulator Plug-In\\BuiltUI\u0027).",
+                      "duration":  43.2
+                  }
+              ]
+}
