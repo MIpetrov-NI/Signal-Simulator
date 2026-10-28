@@ -1,0 +1,57 @@
+{
+ "meta": {
+  "sha": "e6a474f59d8e9b9fb83bd58d652d4610406099f6",
+  "short": "e6a474f",
+  "platform": "windows",
+  "repo": "MIpetrov-NI/Signal-Simulator",
+  "pages_url": "https://MIpetrov-NI.github.io/Signal-Simulator",
+  "dash_url": "https://MIpetrov-NI.github.io/Signal-Simulator/",
+  "labview_version": "2026",
+  "commit": {
+   "message": "Sine-only generator with configurable window, default values and standard InstrumentStudio graph",
+   "author": "MIpetrov-NI",
+   "date": "2026-10-14T15:36:49-05:00"
+  },
+  "generated_utc": "2026-10-28 13:19 UTC",
+  "spdx_version": "CycloneDX 1.5",
+  "created": ""
+ },
+ "summary": {
+  "total_packages": 4
+ },
+ "platforms": [
+  {
+   "id": "windows",
+   "url": null
+  },
+  {
+   "id": "linux",
+   "url": null
+  }
+ ],
+ "packages": [
+  {
+   "name": "ni-labview-2026-vilib",
+   "version": "26.3.0.49792-0+f640",
+   "vendor": "National Instruments"
+  },
+  {
+   "name": "ni_lib_labview_grpc_library",
+   "version": "1.7.0.1",
+   "vendor": "NI"
+  },
+  {
+   "name": "ni_measurement_plugin_sdk_service",
+   "version": "3.5.4.1",
+   "vendor": "NI"
+  },
+  {
+   "name": "ni_protobuf_types",
+   "version": "1.0.0.1",
+   "vendor": "NI"
+  }
+ ],
+ "tooling": {
+  "missing": []
+ }
+}

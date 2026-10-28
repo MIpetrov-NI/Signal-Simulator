@@ -1,0 +1,175 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.5.schema.json",
+  "bomFormat": "CycloneDX",
+  "components": [
+    {
+      "bom-ref": "pkg:nipkg/ni-labview-2026-vilib@26.3.0.49792-0%2Bf640",
+      "description": "This is an infrastructure package for NI Software.",
+      "externalReferences": [
+        {
+          "type": "website",
+          "url": "https://www.ni.com"
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "MD5",
+          "content": "246ec18df75eb2d1bf37435e8fd426d5"
+        },
+        {
+          "alg": "SHA-256",
+          "content": "f67a2aeeb33a66e2bdb9446fbf5b4060e911bb90750e6aef1167eb47eec64b06"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "name": "NI Software License Agreement for Released Products"
+          }
+        }
+      ],
+      "name": "ni-labview-2026-vilib",
+      "properties": [
+        {
+          "name": "vipm:display-name",
+          "value": "NI LabVIEW (64-bit) VI Library"
+        },
+        {
+          "name": "vipm:display-version",
+          "value": "2026 Q3"
+        }
+      ],
+      "purl": "pkg:nipkg/ni-labview-2026-vilib@26.3.0.49792-0%2Bf640",
+      "supplier": {
+        "contact": [
+          {
+            "email": "support@ni.com"
+          }
+        ],
+        "name": "National Instruments"
+      },
+      "type": "library",
+      "version": "26.3.0.49792-0+f640"
+    },
+    {
+      "bom-ref": "pkg:vipm/ni_lib_labview_grpc_library@1.7.0.1",
+      "description": "This Library provides gRPC support for LabVIEW\nhttps://github.com/ni/grpc-labview",
+      "externalReferences": [
+        {
+          "type": "website",
+          "url": "https://github.com/ni/grpc-labview"
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "7b93b96eff1f598e40ef56d8124b0967998eb69e4304f466407b9e92159668cc"
+        }
+      ],
+      "name": "ni_lib_labview_grpc_library",
+      "properties": [
+        {
+          "name": "vipm:display-name",
+          "value": "LabVIEW gRPC Library"
+        }
+      ],
+      "purl": "pkg:vipm/ni_lib_labview_grpc_library@1.7.0.1",
+      "supplier": {
+        "name": "NI"
+      },
+      "type": "library",
+      "version": "1.7.0.1"
+    },
+    {
+      "bom-ref": "pkg:vipm/ni_measurement_plugin_sdk_service@3.5.4.1",
+      "description": "This package provides libraries and APIs that simplify implementing and running LabVIEW measurement plug-ins. The APIs can be found under the \"Measurement I/O -> Measurement Plug-In SDK\" category on the functions palette.",
+      "externalReferences": [
+        {
+          "type": "website",
+          "url": "https://github.com/ni/measurement-plugin-labview"
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "004e98fc30641529ccced05a54c085f244c909e8c611b3a77deb6693511a62a3"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "name": "ni_measurement_plugin_sdk_service",
+      "properties": [
+        {
+          "name": "vipm:display-name",
+          "value": "Measurement Plug-In SDK Service"
+        }
+      ],
+      "purl": "pkg:vipm/ni_measurement_plugin_sdk_service@3.5.4.1",
+      "supplier": {
+        "name": "NI"
+      },
+      "type": "library",
+      "version": "3.5.4.1"
+    },
+    {
+      "bom-ref": "pkg:vipm/ni_protobuf_types@1.0.0.1",
+      "description": "Common message types shared by NI gRPC APIs",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "be3fbfdac0d25b6363b3fc5f20e87835675ef8d3bff0c72a7b577444f0935941"
+        }
+      ],
+      "name": "ni_protobuf_types",
+      "properties": [
+        {
+          "name": "vipm:display-name",
+          "value": "NI gRPC Types"
+        }
+      ],
+      "purl": "pkg:vipm/ni_protobuf_types@1.0.0.1",
+      "supplier": {
+        "name": "NI"
+      },
+      "type": "library",
+      "version": "1.0.0.1"
+    }
+  ],
+  "dependencies": [
+    {
+      "dependsOn": [
+        "pkg:nipkg/ni-labview-2026-vilib@26.3.0.49792-0%2Bf640",
+        "pkg:vipm/ni_lib_labview_grpc_library@1.7.0.1",
+        "pkg:vipm/ni_measurement_plugin_sdk_service@3.5.4.1",
+        "pkg:vipm/ni_protobuf_types@1.0.0.1"
+      ],
+      "ref": "pkg:vipm/Signal-Simulator"
+    }
+  ],
+  "metadata": {
+    "component": {
+      "bom-ref": "pkg:vipm/Signal-Simulator",
+      "name": "Signal Simulator",
+      "type": "application"
+    },
+    "timestamp": "2026-10-28T13:19:31.838Z",
+    "tools": {
+      "components": [
+        {
+          "name": "vipm-cli",
+          "publisher": "JKI",
+          "type": "application",
+          "version": "2026.3.0"
+        }
+      ]
+    }
+  },
+  "serialNumber": "urn:uuid:2a92c157-51d9-416d-9fe4-6fd395995cb5",
+  "specVersion": "1.5",
+  "version": 1
+}
